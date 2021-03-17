@@ -45,11 +45,8 @@
         const reverse = (s) => {
           const str = '' + s
           const strAry = [...str]
-          let reverseAry = []
 
-          for (let i = strAry.length; i > -1; i--) {
-            reverseAry.push(strAry[i])
-          }
+          let reverseAry = strAry.reverse()
 
           const lessIndex = reverseAry.indexOf('-')
           if (lessIndex > -1) {
