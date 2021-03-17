@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse Integer v1</title>
+    <style>
+      .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Reverse Integer v1</h1>
+      <code> Example 1:</em> Input: x = 123 Output: 321</code>
+      <code>Example 2: Input: x = -123 Output: -321</code>
+      <code> Example 3: Input: x = 120 Output: 21</code>
+      <code> Example 4: Input: x = 0 Output: 0</code>
+      <br />
+
+      input
+      <input class="input" type="number" value="" />
+      <br />
+      <button class="submit">SUBMIT</button>
+      <br />
+
+      output:
+      <input class="output" type="number" value="" />
+
+      <br />
+      <button class="reset">RESET</button>
+    </div>
+
+    <script>
+      ;(function () {
+        const reverse = (s) => {
+          const str = '' + s
+          const strAry = [...str]
+          let reverseAry = []
+
+          for (let i = strAry.length; i > -1; i--) {
+            reverseAry.push(strAry[i])
+          }
+
+          const lessIndex = reverseAry.indexOf('-')
+          if (lessIndex > -1) {
+            reverseAry.splice(lessIndex, 1)
+            reverseAry.unshift('-')
+          }
+          if (reverseAry.length > 1 && reverseAry[0] === '0') reverseAry.shift()
+
+          return Number(reverseAry.join(''))
+        }
+
+        const input = document.querySelector('.input')
+        const output = document.querySelector('.output')
+
+        const reset = () => {
+          output.value = ''
+          input.value = ''
+        }
+
+        document.querySelector('.reset').addEventListener('click', reset)
+
+        document.querySelector('.submit').addEventListener('click', () => {
+          output.value = reverse(input.value)
+        })
+      })()
+    </script>
+  </body>
+</html>
